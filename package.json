@@ -4,7 +4,8 @@
   "description": "microservice for handling FlightAuth service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon src/index"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,6 @@
     "nodemon": "^2.0.22",
     "sequelize": "^6.30.0",
     "sequelize-cli": "^6.6.0"
+    
   }
 }
