@@ -20,3 +20,7 @@
 
 ```
 - Once you've addedd your db config as listed above, go to the src folder from your terminal and execut `npx sequelize db:create`
+
+-  ` npx sequelize model:generate --name User --attributes email:string,password:string
+`
+`npx sequelize db:migrate`
