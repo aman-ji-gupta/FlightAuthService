@@ -23,4 +23,4 @@
 
 -  ` npx sequelize model:generate --name User --attributes email:string,password:string
 `
-`npx sequelize db:migrate`
+- `npx sequelize db:migrate`
