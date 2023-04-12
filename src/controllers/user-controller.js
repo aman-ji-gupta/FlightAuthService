@@ -4,12 +4,10 @@ const userservice = new UserService();
 
 const create = async (req,res)=>{
     try {
-        const user = await userservice.create({
-            email : req.body.email,
-            password : req.body.password
-        })
+        console.log(req.body);
+        const user = await userservice.create(req.body)
         return res.status(201).json({
-            data : city,
+            data : user,
             success : true,
             message : "successfully created a User",
             err : {}
