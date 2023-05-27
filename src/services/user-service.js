@@ -2,6 +2,7 @@ const UserRepository = require("../repository/user-repository");
 const jwt = require("jsonwebtoken");
 const {JWT_KEY} = require("../config/serverConfig")
 const bcrypt = require("bcrypt");
+const { use } = require("../routes");
 
 class UserService{
 
@@ -64,7 +65,6 @@ class UserService{
     async signin(email , plainPassword){
 
         try {
-            
         //step->1 find the user with the given email
         const user = await this.userRepository.getUserByEmail(email);
 
@@ -82,6 +82,27 @@ class UserService{
 
         } catch (error) {
             console.log("Something went wrong in the signin process");
+            throw error;
+        }
+    }
+
+    async isAuthenticated(token){
+        try {
+            const response = this.verifyToken(token);
+
+            if(!response){
+                throw {error : "Invalid token"}
+            }
+            const user = this.userRepository.getById(response.id);
+          
+            if(!user){
+                throw {error : "No user with corresponding token exists"};
+            }
+
+            return user.id;
+
+        } catch (error) {
+            console.log("Something went wrong in the Auth process");
             throw error;
         }
     }
