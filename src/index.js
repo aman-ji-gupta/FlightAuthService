@@ -6,7 +6,7 @@ const ApiRoutes = require("./routes/index");
 
 
 
- //create the express object
+ //create the express objecty
  const app = express();
 
 const setupAndStartServer = async ()=>{
